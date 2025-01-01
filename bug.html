@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>This is some text.</p>
+  </div>
+
+  <script>
+    // Incorrect way to add event listener, missing 'useCapture'
+    document.getElementById("myDiv").addEventListener("click", function(event){
+      console.log("Div clicked!");
+      //Missing 'useCapture' parameter
+    });
+
+    // Correct way to add event listener with useCapture set to false
+    document.getElementById("myDiv").addEventListener("click", function(event) {
+        console.log("Div clicked!");
+    }, false);
+  </script>
+</body>
+</html>
